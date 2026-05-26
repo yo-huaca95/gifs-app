@@ -22,7 +22,6 @@ import { GifService } from '../../services/gif.service';
   templateUrl: './trending-page.html',
   imports: [GifList],
 })
-export default class TrendingPage {
+export default class TrendingPage { 
   gifService= inject(GifService);
-  
 }
