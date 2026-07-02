@@ -3,9 +3,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@enviroments/*":["src/environments/*"]
+    "baseUrl": ".",/*Se agrega para Path alias, indica que se toma el root como la base de los urls que se definen en paths*/   "paths": {
+      "@enviroments/*":["src/environments/*"] /* Path alias */
     },
     "strict": true,
     "noImplicitOverride": true,
