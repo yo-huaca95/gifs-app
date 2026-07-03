@@ -34,7 +34,7 @@ export class GifService {
         limit:20,
       }
     }).subscribe((resp)=>{
-      const gifs= GifMapper.mapGiphyItemsTGifArray(resp.data);
+      const gifs= GifMapper.mapGiphyItemsToGifArray(resp.data);
       this.trendingGifs.set(gifs);
       this.trendingGifsLoading.set(false);
       //console.log(gifs);
@@ -51,7 +51,7 @@ export class GifService {
   })
   .pipe(
     map(({data})=>data),
-    map((items)=>GifMapper.mapGiphyItemsTGifArray(items)),
+    map((items)=>GifMapper.mapGiphyItemsToGifArray(items)),
 
     //Historial
     tap((items) =>{

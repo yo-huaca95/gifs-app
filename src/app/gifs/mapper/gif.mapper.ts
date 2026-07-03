@@ -9,7 +9,7 @@ export class GifMapper{
             url:item.images.original.url,
         }
     }
-    static mapGiphyItemsTGifArray(items:GiphyItem[]): Gif[]{
+    static mapGiphyItemsToGifArray(items:GiphyItem[]): Gif[]{
         return items.map(this.mapGiphyItemToGif);
     }
 }
