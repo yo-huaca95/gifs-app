@@ -8,6 +8,6 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
-    provideHttpClient(withFetch()), //intancia del Http
+    provideHttpClient(withFetch()), //intancia del Http se agrega en withFetch() para trabajar con el nuevo estandar, si se deja vacio trabaja en el fondo con las peticiones xhr o peticiones tradicionales.
   ]
 };
