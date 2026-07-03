@@ -14,7 +14,7 @@ import { GiphyResponse } from '../interfaces/giphy.interfaces';
   providedIn: 'root',
 })
 export class GifService {
-  private http= inject(HttpClient);
+  private http= inject(HttpClient); // se debe instanciar o proveer en el app.config.ts
 
   trendingGifs= signal<Gif[]>([]);
   trendingGifsLoading=signal(true);
