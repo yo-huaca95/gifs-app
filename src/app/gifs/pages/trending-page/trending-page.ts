@@ -1,4 +1,4 @@
-import {Component, inject, signal } from '@angular/core';
+import {Component, ElementRef, inject, signal, viewChild } from '@angular/core';
 import { GifList } from "../../components/side-menu/gif-list/gif-list";
 import { GifService } from '../../services/gif.service';
 
@@ -20,8 +20,32 @@ import { GifService } from '../../services/gif.service';
 @Component({
   selector: 'trending-page',
   templateUrl: './trending-page.html',
-  imports: [GifList],
+  //imports: [GifList],
+   imports: [],
 })
 export default class TrendingPage { 
   gifService= inject(GifService);
+
+  //Infinity Scroll
+  scrollDivRef = viewChild<ElementRef<HTMLDivElement>>('groupDiv');
+
+  onScroll(event: Event){
+    const scrollDiv= this.scrollDivRef()?.nativeElement;
+    if(!scrollDiv) return;
+     
+    const scrollTop=scrollDiv.scrollTop;
+    const clienHeight= scrollDiv.clientHeight;
+    const scrollHeight = scrollDiv.scrollHeight;
+    
+    //console.log({scrollTotal:scrollTop+clienHeight, scrollTop, clienHeight,scrollHeight});
+
+    const isAtBottom= scrollTop+clienHeight+300 >= scrollHeight;
+    console.log({isAtBottom});
+    if(isAtBottom){
+      //TODO: Cargar la siguiente página de gifs
+    }
+    
+  }
+
+
 }
